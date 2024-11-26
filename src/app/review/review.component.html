@@ -1,0 +1,30 @@
+<!-- src/app/review/review.component.html -->
+<div class="review-container">
+    <h2>Performance Reviews</h2>
+  
+    <div class="review-list">
+      <h3>Submitted Reviews</h3>
+      <ul>
+        <li *ngFor="let review of reviews">
+          <strong>Reviewer:</strong> {{ review.reviewer.name }}<br>
+          <strong>Reviewee:</strong> {{ review.reviewee.name }}<br>
+          <strong>Feedback:</strong> {{ review.feedback }}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="review-form">
+      <h3>Submit a Review</h3>
+      <form [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+        <div>
+          <label for="reviewee">Reviewee</label>
+          <input id="reviewee" formControlName="reviewee" type="text">
+        </div>
+        <div>
+          <label for="feedback">Feedback</label>
+          <textarea id="feedback" formControlName="feedback"></textarea>
+        </div>
+        <button type="submit">Submit Review</button>
+      </form>
+    </div>
+  </div>    
